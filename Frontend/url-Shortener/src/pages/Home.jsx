@@ -1,15 +1,14 @@
 import { motion } from "framer-motion"
 import FloatingPaths from "../components/floatingPath"
+import { useNavigate } from "react-router-dom";
 
 const Urlshortener = ({ title = "Url Shortener" }) => {
-  const words = title.split(" ")
+  const words = title.split(" ");
+  const navigate = useNavigate();
 
 
   console.log("backend url",import.meta.env.VITE_BACKEND_URL);
 
-  const handleRedirect = (url) => {
-    window.location.href = url
-  }
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950">
@@ -50,14 +49,14 @@ const Urlshortener = ({ title = "Url Shortener" }) => {
 
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <button
-              onClick={() => handleRedirect("/login")}
+              onClick={() => navigate("/login")}
               className="px-8 py-4 text-lg font-semibold rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
             >
               Login
             </button>
 
             <button
-              onClick={() => handleRedirect("/signup")}
+              onClick={() => navigate("/signup")}
               className="px-8 py-4 text-lg font-semibold rounded-xl bg-purple-600 text-white hover:bg-purple-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
             >
               Sign Up

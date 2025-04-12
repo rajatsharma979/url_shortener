@@ -13,12 +13,16 @@ import authRoutes from "./routes/authenticationRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(cors({
-    origin: process.env.Frontend_Url!,
-    credentials: true               // allow cookies
-}));
+const corsOptions = {
+    origin: process.env.Frontend_Url,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  };
 
-app.options("/{*any}", cors());
+app.use(cors(corsOptions));
+
+app.options("/{*any}", cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));

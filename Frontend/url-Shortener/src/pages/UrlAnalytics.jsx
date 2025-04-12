@@ -17,7 +17,7 @@ const UrlAnalytics = () => {
         <div>
             <div className="mt-2 bg-white p-4 rounded-lg shadow-md"> <h3 className="text-lg font-semibold mb-4">Total Clicks :: {totalClicks}</h3> </div>
             <div className="mt-4 bg-white p-4 rounded-lg shadow-md">
-                <h3 className="text-lg font-semibold mb-4">Clicks by Location for:: {`https://dwarf_url/${url.shortUrl}`}</h3>
+                <h3 className="text-lg font-semibold mb-4">Clicks by Location for:: {`${import.meta.env.VITE_BACKEND_URL}/dwarf_url/${url.shortUrl}`}</h3>
 
                 {locationData.length > 0 ? (
 
@@ -42,7 +42,7 @@ const UrlAnalytics = () => {
             </div>
 
             <div className="mt-4 bg-white p-4 rounded-lg shadow-md">
-                <h3 className="text-lg font-semibold mb-4">Clicks by Device for:: {`https://dwarf_url/${url.shortUrl}`}</h3>
+                <h3 className="text-lg font-semibold mb-4">Clicks by Device for:: {`${import.meta.env.VITE_BACKEND_URL}/dwarf_url/${url.shortUrl}`}</h3>
 
                 {deviceData.length > 0 ? (
                     <div className="h-64">

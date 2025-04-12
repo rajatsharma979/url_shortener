@@ -7,6 +7,6 @@ const router = Router();
 
 router.post('/createUrl', isAuthenticated, urlController.createUrl);
 
-router.get('/short/:url', urlController.getUrl);
+router.get('/dwarf_url/:url', urlController.getUrl);
 
 export default router;

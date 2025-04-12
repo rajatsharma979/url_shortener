@@ -61,9 +61,9 @@ const getUrl = async (req: Request, res: Response) => {
                     : "Desktop";
 
             console.log("====before axios======" + ip);
-            //const geo = await axios.get(`http://ip-api.com/json/${ip}`);
+            const geo = await axios.get(`http://ip-api.com/json/${ip}`);
 
-            const geo = await axios.get(`http://ip-api.com/json/8.8.8.8`);
+            //const geo = await axios.get(`http://ip-api.com/json/8.8.8.8`);
 
             //console.log(geo);
             const place = geo.data.city || geo.data.country_name;

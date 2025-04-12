@@ -13,10 +13,18 @@ import authRoutes from "./routes/authenticationRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(cors({
-    origin: process.env.Frontend_Url!,
-    credentials: true               // allow cookies
-}));
+const corsOptions = {
+    origin: process.env.Frontend_Url, // Make sure this exactly matches your frontend URL
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly include OPTIONS
+    allowedHeaders: ['Content-Type', 'Authorization']
+  };
+  
+  app.use(cors(corsOptions));
+  
+  // Handle preflight requests
+  app.options('*', cors(corsOptions)); // Enable preflight for all routes
+  
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));

@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import useragent from "express-useragent";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 
@@ -13,9 +12,6 @@ import authRoutes from "./routes/authenticationRoutes.js";
 
 dotenv.config();
 const app = express();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.use(cors({
     origin: process.env.Frontend_Url!,

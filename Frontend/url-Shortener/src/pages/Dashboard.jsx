@@ -21,7 +21,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchUrlData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/dashboard', {
+                const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/dashboard`, {
                     headers: {
                         'Content-Type': 'application/json',
                         // Add auth header if needed
@@ -102,7 +102,7 @@ const Dashboard = () => {
                                                     <span className="font-medium">Original:</span> {url.orgUrl}
                                                 </p>
                                                 <p className="text-base font-semibold text-indigo-600 truncate">
-                                                    Short URL: <a href={`http://localhost:3000/get/${url.shortUrl}`} className="hover:underline">{`http://localhost:3000/get/${url.shortUrl}`}</a>
+                                                    Short URL: <a href={`https://dwarf_url/${url.shortUrl}`} className="hover:underline">{`https://dwarf_url/${url.shortUrl}`}</a>
                                                 </p>
                                                 <p className="text-sm text-gray-500 mt-1">
                                                     Created on: <span className="font-medium">{new Date(url.createdAt).toLocaleDateString()}</span>
@@ -110,7 +110,7 @@ const Dashboard = () => {
                                             </div>
                                             <div className="flex space-x-3">
                                                 <button
-                                                    onClick={() => navigator.clipboard.writeText(`http://localhost:3000/get/${url.shortUrl}`)}
+                                                    onClick={() => navigator.clipboard.writeText(`https://dwarf_url/${url.shortUrl}`)}
                                                     className="p-2 bg-indigo-100 text-indigo-700 hover:bg-indigo-200 rounded-full transition"
                                                     title="Copy to clipboard"
                                                 >

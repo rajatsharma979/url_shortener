@@ -17,7 +17,7 @@ export default function Signup() {
     setErrors([])
     axios
       .post(
-        "http://localhost:3000/signup",
+        `${import.meta.env.VITE_BACKEND_URL}/signup`,
         { name, email, password },
         { headers: { "Content-Type": "application/json" } },
       )

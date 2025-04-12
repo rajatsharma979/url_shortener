@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault()
     setErrors([])
     axios
-      .post("http://localhost:3000/login",
+      .post(`${import.meta.env.VITE_BACKEND_URL}/login`,
        { email, password }, 
        { headers: { "Content-Type": "application/json" },
        withCredentials: true })

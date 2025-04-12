@@ -1,11 +1,11 @@
 import { motion } from "framer-motion"
 import FloatingPaths from "../components/floatingPath"
-import UrlShortener from "./CreateUrl"
 
-
-// eslint-disable-next-line react/prop-types
 const Urlshortener = ({ title = "Url Shortener" }) => {
   const words = title.split(" ")
+
+
+  console.log("backend url",import.meta.env.VITE_BACKEND_URL);
 
   const handleRedirect = (url) => {
     window.location.href = url

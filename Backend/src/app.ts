@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import useragent from "express-useragent";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 
 import urlRoutes from "./routes/url_routes.js";
@@ -19,10 +18,9 @@ const corsOptions = {
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   };
-
-app.use(cors(corsOptions));
-
-app.options("/{*any}", cors(corsOptions));
+  
+  app.use(cors(corsOptions));
+  app.options('/{*splat}', cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));

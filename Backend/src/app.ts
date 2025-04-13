@@ -4,18 +4,12 @@ import useragent from "express-useragent";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
-
 import urlRoutes from "./routes/url_routes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import authRoutes from "./routes/authenticationRoutes.js";
 
 dotenv.config();
 const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-app.use(useragent.express());
-app.use(cookieParser());
 
 const corsOptions = {
     origin: process.env.Frontend_Url,
@@ -25,7 +19,13 @@ const corsOptions = {
   };
   
 app.use(cors(corsOptions));
-app.options('/{*splat}', cors(corsOptions));
+//app.options('/{*splat}', cors(corsOptions));
+
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(useragent.express());
+app.use(cookieParser());
+
 
 app.use(authRoutes);
 app.use(urlRoutes);

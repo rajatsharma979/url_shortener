@@ -11,7 +11,7 @@ import authRoutes from "./routes/authenticationRoutes.js";
 dotenv.config();
 const app = express();
 
-console.log(process.env.Frontend_Url);
+console.log("frontend url", process.env.Frontend_Url);
 
 const corsOptions = {
     origin: process.env.Frontend_Url,

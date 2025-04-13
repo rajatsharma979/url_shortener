@@ -80,6 +80,7 @@ const postSignup = async (req: Request, res: Response) => {
 
 const postLogin = async (req: Request, res: Response) => {
 
+    console.log("frontend url in post login", process.env.Frontend_Url);
     try {
         const body = req.body as loginData;
 
@@ -116,15 +117,15 @@ const postLogin = async (req: Request, res: Response) => {
 
         res.cookie('accessToken', accessToken, {
             httpOnly: true,
-            //secure: true,             // set this true in production as it sends cookie over https only
-            sameSite: 'strict',         // can be set to lax also. The cookie is sent with same-site requests and with "safe" cross-site requests like GET requests originating from links. 
+            secure: true,             // set this true in production as it sends cookie over https only
+            sameSite: 'lax',         // can be set to lax also. The cookie is sent with same-site requests and with "safe" cross-site requests like GET requests originating from links. 
             maxAge: Number(process.env.Access_Token_Cookie_Expiry)         //15 min in millis
         });
 
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
-            //secure: true,            // set this true in production as it sends cookie over https only
-            sameSite: 'strict',        // can be set to lax also. The cookie is sent with same-site requests and with "safe" cross-site requests like GET requests originating from links.
+            secure: true,            // set this true in production as it sends cookie over https only
+            sameSite: 'lax',        // can be set to lax also. The cookie is sent with same-site requests and with "safe" cross-site requests like GET requests originating from links.
             maxAge: Number(process.env.Refresh_Token_Cookie_Expiry)              //1 day in millis
         })
 

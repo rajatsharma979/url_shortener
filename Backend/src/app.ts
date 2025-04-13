@@ -23,12 +23,10 @@ const corsOptions = {
 app.options('/{*splat}', cors(corsOptions));
 app.use(cors(corsOptions));
 
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(useragent.express());
-app.use(cookieParser());
-
 
 app.use(authRoutes);
 app.use(urlRoutes);

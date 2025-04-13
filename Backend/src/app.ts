@@ -12,6 +12,11 @@ import authRoutes from "./routes/authenticationRoutes.js";
 dotenv.config();
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(useragent.express());
+app.use(cookieParser());
+
 const corsOptions = {
     origin: process.env.Frontend_Url,
     credentials: true,
@@ -19,13 +24,8 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization'],
   };
   
-  app.use(cors(corsOptions));
-  app.options('/{*splat}', cors(corsOptions));
-
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-app.use(useragent.express());
-app.use(cookieParser());
+app.use(cors(corsOptions));
+app.options('/{*splat}', cors(corsOptions));
 
 app.use(authRoutes);
 app.use(urlRoutes);

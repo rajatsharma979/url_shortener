@@ -23,7 +23,7 @@ const UrlShortener = () => {
     setError('');
 
     try {
-      response = await axios.post('http://localhost:3000/createUrl', {
+      response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/createUrl`, {
         orgUrl: url
       }, {
         headers: { 'Content-Type': 'application/json' },

@@ -24,8 +24,6 @@ const Dashboard = () => {
                 const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/dashboard`, {
                     headers: {
                         'Content-Type': 'application/json',
-                        // Add auth header if needed
-                        // 'Authorization': `Bearer ${localStorage.getItem('token')}`
                     },
                     withCredentials: true
                 });

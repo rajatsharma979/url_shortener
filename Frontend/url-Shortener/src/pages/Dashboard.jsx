@@ -10,7 +10,6 @@ const Dashboard = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    window.location.reload();
 
     const handleAnalyticsClick = (url) => {
         navigate("/urlanalytics", {
@@ -21,6 +20,9 @@ const Dashboard = () => {
     };
 
     useEffect(() => {
+
+        window.location.reload();
+        
         const fetchUrlData = async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/dashboard`, {

@@ -21,8 +21,6 @@ const Dashboard = () => {
 
     useEffect(() => {
 
-        window.location.reload();
-        
         const fetchUrlData = async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/dashboard`, {

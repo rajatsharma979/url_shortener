@@ -10,6 +10,8 @@ const Dashboard = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    window.location.reload();
+
     const handleAnalyticsClick = (url) => {
         navigate("/urlanalytics", {
             state: {
